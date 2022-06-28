@@ -1,0 +1,11 @@
+.countries-list {
+  /* margin-bottom: 8rem; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  gap: 3.2rem;
+
+  font-size: 2rem;
+  opacity: 1;
+  transition: opacity 1s;
+  justify-items: center;
+}
