@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import "./Search.css";
 
-function Search() {
+function Search({ apThis }) {
   const [value, setValue] = useState("");
 
   const handleChange = (e) => {
@@ -11,7 +11,16 @@ function Search() {
 
   return (
     <div>
-      <form className="search__form" action="">
+      <form
+        className="search__form"
+        action=""
+        onSubmit={(event) => {
+          event.preventDefault();
+          apThis.handleSubmit(value);
+
+          setValue("");
+        }}
+      >
         <fieldset className="search__form-group">
           <IoSearch size={24} color="#444444" />
           <input

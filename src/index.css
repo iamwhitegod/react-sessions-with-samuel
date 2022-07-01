@@ -13,14 +13,18 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   line-height: 2.4rem;
   color:  hsl(200, 15%, 8%);
+  min-height: 100vh;
 }
 
 main {
   background-color: hsl(0, 0%, 98%);
   padding: 0.1rem;
+  padding-bottom: 6.4rem;
+  min-height: calc(100vh - 6.4rem);
 }
 
 .container {
   max-width: 120rem;
   margin: 0 auto;
+
 }
