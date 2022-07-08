@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import Search from "./Search";
 import CountriesList from "./CountriesList";
 import CountryCard from "./CountryCard";
+import Filter from "./Filter";
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
     };
 
     this.getSearch = this.getSearch.bind(this);
+    this.getCountriesByRegion = this.getCountriesByRegion.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +29,21 @@ class App extends Component {
         console.log(data);
         this.setState({ countries: data });
       });
+  }
+
+  async getCountriesByRegion(region) {
+    try {
+      const res = await fetch(`https://restcountries.com/v2/region/${region}`);
+
+      if (!res.ok)
+        throw new Error("Region not found. Please try another region.");
+
+      const data = await res.json();
+      this.setState({ countries: data });
+      console.log(data);
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   async getSearch(searchQuery) {
@@ -43,7 +60,7 @@ class App extends Component {
       const data = await res.json();
       this.setState({ countries: data });
     } catch (err) {
-      alert(err.message);
+      console.error(err.message);
     }
   }
 
@@ -61,7 +78,7 @@ class App extends Component {
           <div className="container">
             <div className="search">
               <Search apThis={this} />
-              {/* Filter */}
+              <Filter apThis={this} />
             </div>
 
             <CountriesList>

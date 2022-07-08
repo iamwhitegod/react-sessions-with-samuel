@@ -1,16 +1,20 @@
 .search {
   /* padding: 2rem; */
+  display: flex;
+  justify-content: space-between;
   margin: 4.8rem 0;
 }
 
 .search__form {
+  flex: 1;
+  width: 50rem;
   max-width: 50rem;
 }
 
 .search__form-group {
   display: flex;
   align-items: center;
-  padding:1.6rem 1.2rem;
+  padding: 1.6rem 1.2rem;
   background-color: #fff;
   border: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
@@ -29,7 +33,7 @@
   flex: 1;
   align-self: stretch;
   border: none;
-  color: inherit
+  color: inherit;
 }
 
 .search__input:focus {

@@ -10,9 +10,9 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   line-height: 2.4rem;
-  color:  hsl(200, 15%, 8%);
+  color: hsl(200, 15%, 8%);
   min-height: 100vh;
 }
 
@@ -26,5 +26,4 @@ main {
 .container {
   max-width: 120rem;
   margin: 0 auto;
-
 }
