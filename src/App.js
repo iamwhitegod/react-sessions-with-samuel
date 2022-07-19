@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       countries: [],
-      theme: "lightMode",
+      darkMode: localStorage.getItem("darkMode") || null,
     };
 
     this.getSearch = this.getSearch.bind(this);
@@ -29,6 +29,11 @@ class App extends Component {
         console.log(data);
         this.setState({ countries: data });
       });
+  }
+
+  toggleTheme() {
+    this.setState({ darkMode: !this.state.darkMode });
+    localStorage.setItem("darkMode", !this.state.darkMode);
   }
 
   async getCountriesByRegion(region) {
@@ -72,8 +77,8 @@ class App extends Component {
     return (
       // <React.Fragment>
       //   <React.Fragment/>
-      <>
-        <Navigation />
+      <div className={`app ${this.state.darkMode ? "dark-mode" : ""}`}>
+        <Navigation theme={this.state.darkMode} apThis={this} />
         <main>
           <div className="container">
             <div className="search">
@@ -92,7 +97,7 @@ class App extends Component {
             </CountriesList>
           </div>
         </main>
-      </>
+      </div>
     );
   }
 }

@@ -22,7 +22,7 @@ function Search({ apThis }) {
         }}
       >
         <fieldset className="search__form-group">
-          <IoSearch size={24} color="#444444" />
+          <IoSearch size={24} className="search__icon" />
           <input
             className="search__input"
             type="search"

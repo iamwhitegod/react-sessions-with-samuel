@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 
 import "./Navigation.css";
 
-function Navigation() {
-  const [theme, setTheme] = useState(true);
+function Navigation({ apThis, theme }) {
+  // const [theme, setTheme] = useState(false);
 
   return (
     <nav className="navbar">
@@ -13,12 +13,12 @@ function Navigation() {
           <h1>Where in the world</h1>
           <button
             className="navbar__toggle-theme"
-            onClick={() => setTheme((prev) => !prev)}
+            onClick={() => apThis.toggleTheme()}
           >
             {theme ? (
-              <IoMoonOutline size={24} color="#444444" />
+              <IoMoonOutline size={24} className="navbar__icon" />
             ) : (
-              <IoMoonSharp size={24} />
+              <IoSunnyOutline size={24} className="navbar__icon" />
             )}
             <span>Dark Mode</span>
           </button>

@@ -1,3 +1,17 @@
+:root {
+  --light-mode-text: hsl(200, 15%, 8%);
+  --light-mode-input: hsl(0, 0%, 52%);
+  --light-mode-bg: hsl(0, 0%, 98%);
+  --light-mode-elem: hsl(0, 0%, 100%);
+}
+
+.dark-mode {
+  --light-mode-text: hsl(0, 0%, 100%);
+  /* --light-mode-input: hsl(0, 0%, */
+  --light-mode-bg: hsl(207, 26%, 17%);
+  --light-mode-elem: hsl(209, 23%, 22%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,15 +26,19 @@ body {
   font-size: 1.6rem;
   font-family: "Nunito Sans", sans-serif;
   line-height: 2.4rem;
-  color: hsl(200, 15%, 8%);
+  color: var(--light-mode-text);
   min-height: 100vh;
 }
 
 main {
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--light-mode-bg);
   padding: 0.1rem;
   padding-bottom: 6.4rem;
   min-height: calc(100vh - 6.4rem);
+}
+
+span {
+  color: var(--light-mode-text);
 }
 
 .container {

@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   padding: 1.6rem 1.2rem;
-  background-color: #fff;
+  background-color: var(--light-mode-elem);
   border: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
   border-radius: 0.4rem;
@@ -33,9 +33,15 @@
   flex: 1;
   align-self: stretch;
   border: none;
-  color: inherit;
+  /* color: inherit; */
+  background-color: var(--light-mode-elem);
+  color: var(--light-mode-input);
 }
 
 .search__input:focus {
   outline: none;
+}
+
+.search__icon {
+  color: var(--light-mode-text);
 }
