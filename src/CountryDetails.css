@@ -1,0 +1,30 @@
+.country-details {
+  max-width: 110rem;
+  margin: 0 auto;
+}
+
+.country-details__btn--back {
+  font: inherit;
+  font-weight: 500;
+  padding: 1.2rem 3.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: var(--light-mode-elem);
+  color: var(--light-mode-text);
+  margin-top: 4.8rem;
+  cursor: pointer;
+}
+
+.country-details__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  margin-top: 10vh;
+}
+
+.country-details__img {
+}
+
+.country-details__img img {
+  width: 100%;
+}

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { Routes, Route } from "react-router-dom";
+import Countries from "./Countries";
+import CountryDetails from "./CountryDetails";
 
 import Navigation from "./Navigation";
-import Search from "./Search";
-import CountriesList from "./CountriesList";
-import CountryCard from "./CountryCard";
-import Filter from "./Filter";
+// import Countries from "./Countries";
+// import CountryDetails from "./CountryDetails";
 
 class App extends Component {
   constructor() {
@@ -30,6 +31,10 @@ class App extends Component {
         this.setState({ countries: data });
       });
   }
+
+  // componentDidUpdate() {
+
+  // }
 
   toggleTheme() {
     this.setState({ darkMode: !this.state.darkMode });
@@ -63,6 +68,7 @@ class App extends Component {
         );
 
       const data = await res.json();
+      console.log(data);
       this.setState({ countries: data });
     } catch (err) {
       console.error(err.message);
@@ -80,22 +86,16 @@ class App extends Component {
       <div className={`app ${this.state.darkMode ? "dark-mode" : ""}`}>
         <Navigation theme={this.state.darkMode} apThis={this} />
         <main>
-          <div className="container">
-            <div className="search">
-              <Search apThis={this} />
-              <Filter apThis={this} />
-            </div>
-
-            <CountriesList>
-              {this.state.countries &&
-                this.state.countries.map((country) => (
-                  <CountryCard
-                    data={country}
-                    key={`${Math.random() * 12 + 1}`.split(".")[1]}
-                  />
-                ))}
-            </CountriesList>
-          </div>
+          {/* <Countries countries={this.state.countries} apThis={this} /> */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Countries countries={this.state.countries} apThis={this} />
+              }
+            />
+            <Route path="/:country" element={<CountryDetails />} />
+          </Routes>
         </main>
       </div>
     );
